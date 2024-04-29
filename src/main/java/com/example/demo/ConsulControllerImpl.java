@@ -43,7 +43,7 @@ public class ConsulControllerImpl {
     @GetMapping("/exception")
     public Map<String, String> throwExceptionTest(@RequestParam int number) throws BusinessException {
         if (number < 5) {
-            throw new BusinessException( "rnn0001", "Number must be at least 5.");
+            throw new BusinessException( "rn001", "Number must be at least 5.");
         }
         return consulConfig.getAbacaxi();
     }
