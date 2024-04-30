@@ -29,7 +29,7 @@ public class ConsulControllerImpl {
 
 
     @GetMapping("/")
-    public Map<String, String> getConfigs() {
+    public Map<String, ConsulConfig.ExceptionDetail> getConfigs() {
         return consulConfig.getAbacaxi();
     }
 
@@ -41,9 +41,17 @@ public class ConsulControllerImpl {
     }
 
     @GetMapping("/exception")
-    public Map<String, String> throwExceptionTest(@RequestParam int number) throws BusinessException {
+    public Map<String, ConsulConfig.ExceptionDetail> throwExceptionTest(@RequestParam int number) throws BusinessException {
         if (number < 5) {
             throw new BusinessException( "rn001", "Number must be at least 5.");
+        }
+        return consulConfig.getAbacaxi();
+    }
+
+    @GetMapping("/exception-with-args")
+    public Map<String, ConsulConfig.ExceptionDetail> throwExceptionTestArgs(@RequestParam int number) throws BusinessException {
+        if (number < 5) {
+            throw new BusinessException( "rn010", "Number must be at least 5.","abacaxi","mamão","pêra");
         }
         return consulConfig.getAbacaxi();
     }

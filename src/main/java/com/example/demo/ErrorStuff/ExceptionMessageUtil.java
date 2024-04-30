@@ -22,7 +22,16 @@ public class ExceptionMessageUtil {
             return defaultMessage;
         }
 
-        String message = consulConfig.getAbacaxi().get(identifier);
-        return (message != null && !message.isEmpty()) ? message : defaultMessage;
+        ConsulConfig.ExceptionDetail message = consulConfig.getAbacaxi().get(identifier);
+        if (message != null && message.getMessage() != null && !message.getMessage().isEmpty()) {
+            return message.getMessage();
+        } else {
+            return defaultMessage;
+        }
+
+    }
+
+    public static Integer getExceptionDetails(String identifier) {
+        return consulConfig != null ? consulConfig.getAbacaxi().get(identifier).getStatusCode() : null;
     }
 }

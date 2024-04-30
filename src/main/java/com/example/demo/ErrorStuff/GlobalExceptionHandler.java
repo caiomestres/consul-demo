@@ -1,9 +1,11 @@
 package com.example.demo.ErrorStuff;
 
+import com.example.demo.ConsulConfig;
 import lombok.Getter;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,17 +19,19 @@ import java.util.List;
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-
     private static final Logger LOGGERS = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler({BusinessException.class})
-    private ResponseEntity<Object> businessException(BusinessException ex){
-//        HttpStatus httpStatus = ex instanceof AuthenticationException ? HttpStatus.UNAUTHORIZED : HttpStatus.BAD_REQUEST;
-        LOGGERS.error(ex.getMessage(),ex);
-        String userMessage = ex.getMessage();
-        String technicalMessage = ExceptionUtils.getRootCauseMessage(ex) + " / " + ExceptionUtils.getStackTrace(ex);
-        List<Error> errors = Collections.singletonList(new Error(userMessage, technicalMessage));
-        ApiError apiError = new ApiError(HttpStatus.BAD_REQUEST, userMessage, errors);
+    public ResponseEntity<Object> handleBusinessException(BusinessException ex) {
+        Integer statusCode = ExceptionMessageUtil.getExceptionDetails(ex.getIdentifier());
+        HttpStatus status = statusCode != null && statusCode > 0 ?
+            HttpStatus.valueOf(statusCode) :
+            HttpStatus.BAD_REQUEST;
+        ApiError apiError = new ApiError(
+            status,
+            ex.getMessage(),
+            Collections.singletonList(new Error(ex.getMessage(), ex.getTechnicalMessage()))
+        );
         return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getHttpStatus());
     }
 
