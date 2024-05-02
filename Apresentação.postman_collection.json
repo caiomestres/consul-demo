@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "2b63284a-2348-497f-98ea-67666e35ae35",
+		"name": "Apresentação",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4543441"
+	},
+	"item": [
+		{
+			"name": "/consul",
+			"item": [
+				{
+					"name": "showcase",
+					"item": [
+						{
+							"name": "rn001",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"rn001\",\r\n    \"value\": \"Esta é a mensagem rn001 do consul\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/consul",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"consul"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "config/topbank-app-core/exception/rn001",
+											"disabled": true
+										},
+										{
+											"key": "value",
+											"value": "Esta é a mensagem rn001 do consul",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rn010",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"key\": \"rn010\",\r\n    \"value\": \"Tente os números %s, %s ou %s\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/consul",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"consul"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "config/topbank-app-core/exception/rn010",
+											"disabled": true
+										},
+										{
+											"key": "value",
+											"value": "Tente os números %s, %s ou %s",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GET ALL EXCEPTIONS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/consul",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"consul"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/number",
+			"item": [
+				{
+					"name": "Check bigger 5",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/number/check-bigger-5?number=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"number",
+								"check-bigger-5"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check bigger 10",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/number/check-bigger-10-args?number=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"number",
+								"check-bigger-10-args"
+							],
+							"query": [
+								{
+									"key": "number",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/auth",
+			"item": [
+				{
+					"name": "Auth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
