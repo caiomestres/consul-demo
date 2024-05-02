@@ -1,4 +1,4 @@
-package com.example.demo.ErrorStuff;
+package com.example.demo.errorStuff;
 
 import lombok.Getter;
 
@@ -19,7 +19,7 @@ public class BusinessException extends Exception {
   }
 
   public BusinessException(String identifier, String defaultMessage, String... args) {
-    String exceptionMessage = formatMessageForException(identifier,defaultMessage,args);
+    String exceptionMessage = formatMessageForException(identifier, defaultMessage, args);
     this.identifier = identifier;
     this.message = exceptionMessage;
     this.technicalMessage = exceptionMessage;
@@ -35,7 +35,7 @@ public class BusinessException extends Exception {
                            StackTraceElement[] technicalMessage,
                            String... args) {
     this.identifier = identifier;
-    this.message = formatMessageForException(identifier,defaultMessage,args);
+    this.message = formatMessageForException(identifier, defaultMessage, args);
     this.technicalMessage = Arrays.toString(technicalMessage);
   }
 
@@ -45,7 +45,7 @@ public class BusinessException extends Exception {
     this.technicalMessage = secureMessage;
   }
 
-  public BusinessException(String identifier, String defaultMessage, Throwable cause,String... args) {
+  public BusinessException(String identifier, String defaultMessage, Throwable cause, String... args) {
     super(formatMessageForException(identifier, defaultMessage, args), cause);
     String exceptionMessage = formatMessageForException(identifier, defaultMessage, args);
     this.identifier = identifier;
@@ -64,9 +64,9 @@ public class BusinessException extends Exception {
                            StackTraceElement[] technicalMessage,
                            Throwable cause,
                            String... args) {
-    super(formatMessageForException(identifier, defaultMessage,args), cause);
+    super(formatMessageForException(identifier, defaultMessage, args), cause);
     this.identifier = identifier;
-    this.message = formatMessageForException(identifier, defaultMessage,args);
+    this.message = formatMessageForException(identifier, defaultMessage, args);
     this.technicalMessage = Arrays.toString(technicalMessage);
   }
 

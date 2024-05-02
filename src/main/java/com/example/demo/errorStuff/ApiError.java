@@ -1,4 +1,4 @@
-package com.example.demo.ErrorStuff;
+package com.example.demo.errorStuff;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
