@@ -1,6 +1,6 @@
 package com.example.demo.errorStuff;
 
-import com.example.demo.ConsulConfig;
+import com.example.demo.consulStuff.ConsulConfig;
 
 public class ExceptionMessageUtil {
 

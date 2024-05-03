@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.Services.NumberService;
+import com.example.demo.services.NumberService;
 import com.example.demo.errorStuff.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
-package com.example.demo.Services.impl;
+package com.example.demo.services.impl;
 
-import com.example.demo.Services.AuthenticateService;
+import com.example.demo.services.AuthenticateService;
 import com.example.demo.errorStuff.AuthenticationException;
 import com.example.demo.errorStuff.BusinessException;
 import lombok.Getter;

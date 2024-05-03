@@ -1,7 +1,7 @@
-package com.example.demo.Services.impl;
+package com.example.demo.services.impl;
 
-import com.example.demo.ConsulConfig;
-import com.example.demo.Services.ConsulService;
+import com.example.demo.consulStuff.ConsulConfig;
+import com.example.demo.services.ConsulService;
 import com.example.demo.errorStuff.BusinessException;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;

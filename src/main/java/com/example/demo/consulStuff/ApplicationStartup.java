@@ -1,6 +1,5 @@
 package com.example.demo.consulStuff;
 
-import com.example.demo.ConsulConfig;
 import com.example.demo.errorStuff.ExceptionMessageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

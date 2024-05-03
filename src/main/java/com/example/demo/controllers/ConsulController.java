@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
-import com.example.demo.Services.ConsulService;
-import com.example.demo.controllers.views.UpdateConsulRequest;
+import com.example.demo.services.ConsulService;
+import com.example.demo.controllers.requests.UpdateConsulRequest;
 import com.example.demo.errorStuff.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

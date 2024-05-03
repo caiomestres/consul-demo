@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.consulStuff;
 
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
